@@ -1,6 +1,5 @@
 import type { MiddlewareHandler } from "hono";
 import jwt from "jsonwebtoken"
-
 const jWT_SECRET = String(process.env.JWT_SECRET)
 export const verifyToken: MiddlewareHandler = async (c, next) => {
     const authHeader = c.req.header("Authorization");

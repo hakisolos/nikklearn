@@ -6,7 +6,7 @@ app.route("/auth", auth)
 
 
 app.get("/", (c) => {
-    return c.text("sucess")
+    return c.text("worked")
 })
 
 
