@@ -1,0 +1,145 @@
+1️⃣ Authentication System (JWT-based)
+
+📍Purpose: Secure login/register for teachers & students
+Tasks:
+
+Setup Express app
+
+Create User model (name, email, password, role: teacher/student)
+
+Create auth routes:
+
+    POST /api/register
+
+    POST /api/login
+
+Hash passwords with bcrypt
+
+Return JWT on login
+
+    Middleware to protect private routes: authMiddleware, roleCheckMiddleware
+
+2️⃣ User Roles & Middleware
+
+📍Purpose: Limit actions based on user role (teacher vs student)
+Tasks:
+
+Create middleware: requireRole("teacher")
+
+    Apply on routes like:
+
+        Create classroom → teacher only
+
+        Start board session → teacher only
+
+3️⃣ Classroom Management
+
+📍Purpose: Teachers create classrooms, students join with a code
+Tasks:
+
+Create Classroom model:
+
+    title, description, createdBy, joinCode, students[], isLive, schedule
+
+POST /api/classrooms → teacher only
+
+GET /api/classrooms/:id → view details
+
+POST /api/classrooms/:id/join → student joins by code
+
+    GET /api/classrooms/my → get all classrooms user is part of
+
+4️⃣ Live Board Sessions
+
+📍Purpose: Teacher starts a live session to share the virtual board
+Tasks:
+
+Create BoardSession model:
+
+    classroomId, data (JSON), startedBy, createdAt, isActive
+
+POST /api/classrooms/:id/board/start → creates a board session
+
+GET /api/board/:id → get board data
+
+    Real-time updates with Socket.io (board:update event)
+
+5️⃣ Realtime Chat per Classroom
+
+📍Purpose: Live chat for everyone in the classroom
+Tasks:
+
+Create Message model:
+
+    classroomId, sender, content, createdAt
+
+Socket.io:
+
+    join:classroom
+
+    message:send
+
+    message:receive
+
+Save messages in MongoDB
+
+    GET /api/classrooms/:id/messages
+
+6️⃣ File & Resource Uploads
+
+📍Purpose: Upload PDFs, videos, board snapshots
+Tasks:
+
+Setup Multer or Cloudinary
+
+POST /api/classrooms/:id/resources → file upload
+
+    GET /api/classrooms/:id/resources → list files
+
+7️⃣ Typing Indicators + Presence (Optional but sexy)
+
+📍Purpose: Show who is online, typing, etc.
+Tasks:
+
+Track connected users in socket rooms
+
+Emit user:typing and user:stopTyping events
+
+    Emit user:online / user:offline
+
+8️⃣ Save & Load Board Sessions
+
+📍Purpose: Store past boards for future reference
+Tasks:
+
+Save board data every X seconds or on exit
+
+GET /api/classrooms/:id/boards → list all saved boards
+
+    GET /api/board/:id → view one session
+
+9️⃣ Admin Panel (Optional Bonus)
+
+📍Purpose: You manage users, reports, abusive classrooms
+Tasks:
+
+GET /api/admin/users
+
+DELETE /api/admin/user/:id
+
+    DELETE /api/admin/classroom/:id
+
+🔟 Testing & Security
+
+📍Purpose: Make it production-ready
+Tasks:
+
+Rate limiting (express-rate-limit)
+
+Validation (Joi/Zod)
+
+CORS setup
+
+Helmet for securing headers
+
+Input sanitization

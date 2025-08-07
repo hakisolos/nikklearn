@@ -1,0 +1,16 @@
+curl -X POST http://localhost:4000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Haki Xer",
+    "email": "vaki@example.com",
+    "password": "secret123",
+    "role": "admin"
+}'
+
+
+curl -X POST http://localhost:4000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "vaki@example.com",
+    "password": "secret123"
+}'
