@@ -17,7 +17,11 @@ auth.post("/register", async(c) => {
     const data = await register(body.name, body.email, password, body.role)
     return c.json({message: "signup successful", data: data}, 200)
 })
+/*
+curl http://localhost:4000/auth/protected \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJiYWtpQGV4YW1wbGUuY29tIiwicm9sZSI6InRlYWNoZXIiLCJpYXQiOjE3NTQ3NzY4MDUsImV4cCI6MTc1NTY0MDgwNX0.liWb_S5tsS8H2OeKeojGItH-HkqcPpG5z2w_raHBxhc"
 
+  */
 
 auth.post("/login", async(c) => {
     const body = await c.req.json()

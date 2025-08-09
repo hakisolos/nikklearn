@@ -14,3 +14,49 @@ curl -X POST http://localhost:4000/auth/login \
     "email": "vaki@example.com",
     "password": "secret123"
 }'
+
+
+curl -X POST http://localhost:4000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Haki Xer",
+    "email": "naki@example.com",
+    "password": "secret123",
+    "role": "admin"
+}'
+
+curl -X POST http://localhost:4000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Haki Xer",
+    "email": "baki@example.com",
+    "password": "secret123",
+    "role": "teacher"
+}'
+
+
+
+curl -X POST http://localhost:4000/class/newClass \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJiYWtpQGV4YW1wbGUuY29tIiwicm9sZSI6InRlYWNoZXIiLCJpYXQiOjE3NTQ3NzY4MDUsImV4cCI6MTc1NTY0MDgwNX0.liWb_S5tsS8H2OeKeojGItH-HkqcPpG5z2w_raHBxhc" \
+  -d '{
+    "title": "Math 101",
+    "description": "Basic algebra and geometry",
+    "schedule": "2025-09-10T10:00:00.000Z",
+    "students": []
+  }'
+
+
+  curl -X POST http://localhost:4000/class/startClass \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJiYWtpQGV4YW1wbGUuY29tIiwicm9sZSI6InRlYWNoZXIiLCJpYXQiOjE3NTQ3NzY4MDUsImV4cCI6MTc1NTY0MDgwNX0.liWb_S5tsS8H2OeKeojGItH-HkqcPpG5z2w_raHBxhc" \
+  -d '{
+    "joinCode": "ZvHpXcqj5u"
+  }'
+ curl -X POST http://localhost:4000/class/endClass \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJiYWtpQGV4YW1wbGUuY29tIiwicm9sZSI6InRlYWNoZXIiLCJpYXQiOjE3NTQ3NzY4MDUsImV4cCI6MTc1NTY0MDgwNX0.liWb_S5tsS8H2OeKeojGItH-HkqcPpG5z2w_raHBxhc" \
+  -d '{
+    "joinCode": "ZvHpXcqj5u"
+  }'
+  
