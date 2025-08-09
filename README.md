@@ -314,7 +314,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub**: [https://github.com/hakisolos](https://github.com/hakisolos)
 - **Email**: hakixer@gmail.com
 - **Discord**: Join our community server
-- **Twitter**: sh
+- **Twitter**: @haki_Xer
 
 ### 🆘 Need Help?
 
