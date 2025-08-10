@@ -1,6 +1,6 @@
-# 🛍️ nikkaLearn - E-commerce Backend System
+# 🛍️ nikkaLearn - E-learning Backend System
 
-**A blazing fast, modern e-commerce backend built with cutting-edge technologies** ⚡
+**A blazing fast, modern e-learning  backend built with cutting-edge technologies** ⚡
 
 [🚀 Quick Start](#-quick-start) • [🛠️ Deploy](#-deployment) • [💬 Support](#-support--contact)
 
