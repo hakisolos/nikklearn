@@ -1,4 +1,4 @@
-# 🛍️ nikkaLearn - E-learning Backend System
+#👨‍💻💻 nikkaLearn - E-learning Backend System
 
 **A blazing fast, modern e-learning  backend built with cutting-edge technologies** ⚡
 
